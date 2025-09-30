@@ -5,18 +5,30 @@
 * Browsers: last 4 version
 */
 
+/* ============================
+   Variables & Global Resets
+============================ */
+
 :root {
     --primary-color: #357b70;
     --secondary-color: #e0b354;
     --dark-grey: #2b2b2b;
 }
+
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+/* ============================
+   Base Typography & Elements
+============================ */
+
 body {
-    font-family: 'Lato' , sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight: 400;
     font-size: 16px;
-    /* Sets the font size to 16px*/
     line-height: 1.6;
-    /* Sets the line height to 1.6*/
 }
 
 h1 {
@@ -39,84 +51,52 @@ a {
 }
 
 a:visited {
-    /* visited link */
     color: #05676e;
 }
-a:hover, a:focus {
-    /* No underlining when hovering link*/
+
+a:hover,
+a:focus {
     text-decoration: none;
 }
 
 a:active {
-/* selected link*/
-color: #489c79;
+    color: #489c79;
 }
 
-.navigation-list__item--active {
-    text-decoration: none;
-}
+/* ============================
+   Layout & Containers
+============================ */
 
-button {
-    /* overwrites browser deafults and resets the border */
-    border: none;
-    /* takes the font from the outer container*/
-    font-family: inherit;
-    /* styles background color, font color, and text decorations (underline, etc) of the button*/
-    background: #357b70;    
-    color: white;
-    text-decoration: none;
-    /* gives the button a bottom border with a width of 2px, a type of solid, and color in RGBA format*/
-    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-button:hover, button:focus {
-    /* lets the mouse appear as a hand when hovering over the button*/
-    cursor: pointer;
-    /* reduces the opacity of the button to 80%*/
-    opacity: 0.8;
-}
-
-.button_secondary {
-    background-color: #e0b354;
-    color: #2b2b2b;
-}
-
-/*
-Colors used 
-Text color (Dark gray): #2b2b2b;
-Primary color (Purple): #357b70;
-Secondary color (Orange): #e0b354;
-*/
 div {
-    padding: 10px; /*adds a 10px inner spacing to all sides*/
-    margin: 10px; /*adds a 10px outer spacing to all sides*/
+    padding: 10px;
+    margin: 10px;
 }
 
 .header_title {
-    /*no spacing to top and bottom and autoo spacing to left and right, which centers the container HORIZONTALLLY*/
     margin: 0 auto;
 }
 
-.profile__portrait {
-    float: left;
-    width: 250px;
-    margin-right: 40px;
-    border-radius: 50%;
-}
-.page-footer {
-    clear: both;
+.page-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    padding: 20px;
 }
 
-.profile { 
-
-    max-width: 700px;
-    margin: 0 auto;
-
+.page-header__item:last-child {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    text-align: right;
 }
-* { 
-    -webkit-box-sizing: border-box; 
-            box-sizing: border-box;
+
+.pager-header__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 200px;
+            flex: 0 1 200px;
 }
+
 .page-footer {
     clear: both;
     display: -webkit-box;
@@ -129,40 +109,86 @@ div {
     text-align: center;
 }
 
-.profile__text { 
-    -webkit-box-flex: 1; 
-        -ms-flex: 1 1 100px; 
-            flex: 1 1 100px;
-}
-
-.page-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    padding: 20px;
-}
-
-.pager-header__item {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 1 200px;
-            flex: 0 1 200px;
-}
-
-.page-header__item:last-child {
-    -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    text-align: right;
-}
+/* ============================
+   Navigation
+============================ */
 
 .navigation-list {
     list-style-type: none;
 }
+
 .navigation-list li {
     display: inline-block;
     margin-left: 15px;
 }
+
+.navigation-list__item--active {
+    text-decoration: none;
+}
+
+/* ============================
+   Buttons
+============================ */
+
+.button,
+button {
+    border: none;
+    display: inline;
+    font-family: inherit;
+    background-color: #357b70;
+    color: wwhite;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 3px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    -webkit-transition-duration: .2s;
+         -o-transition-duration: .2s;
+            transition-duration: .2s;
+}
+
+.button_secondary {
+    background-color: #e0b354;
+    color: #2b2b2b;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/* ============================
+   Profile
+============================ */
+
+.profile {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.profile th,
+.profile td {
+    border-bottom: 1px solid #ddd;
+}
+
+.profile__portrait {
+    float: left;
+    width: 250px;
+    margin-right: 40px;
+    border-radius: 50%;
+}
+
+.profile__text {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100px;
+            flex: 1 1 100px;
+}
+
+/* ============================
+   Grid System
+============================ */
 
 .grid {
     display: -ms-grid;
@@ -176,76 +202,39 @@ div {
     background-color: lightgray;
 }
 
-@media all and (max-width: 500px) {
-    .grid {
-        -ms-grid-columns: 1fr ;
-        grid-template-columns: 1fr ;
-        grid-gap: 10px;
-    }
-    .grid__item:last-child {
-        grid-column: auto / auto;
-        grid-row: auto / auto;
-    }
-    h1 {
-        font-size: 22px;
-    }
+/* ============================
+   Forms
+============================ */
+
+form {
+    border-radius: 5px;
 }
 
-@media all and (min-width: 500px) and (max-width: 700px) {
-    .grid {
-        -ms-grid-columns: 1fr 10px 1fr;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 10px;
-    }
-    .grid__item:last-child {
-        grid-column: auto / auto;
-        grid-row: auto / auto ;
-    }
-    h1 { 
-        font-size: 22px;
-    }
+label {
+    display: block;
 }
- @media all and (max-width: 750px) {
-    .grid {
-        grid-gap: 10px;
-    }
-    .grid__item:last-child {
-        grid-column: auto / auto;
-        grid-row: auto / auto;
-    }
-    h1 {
-        font-size: 22px;
-    }
- }
 
- .button, button { 
-    /* overwrites broswer defaults and resets the border*/
-    border: none;
-    display: inline;
-    /*takes the font from the outer container*/
-    font-family: inherit;
-    /*styles the button*/
-    background-color: #357b70;
-    color: wwhite;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 3px;
-    /*width of the border, type, color*/
-    border-bottom: 2px solid rgba(0, 0, 0, .3);
-    -webkit-transition-duration: .2s;
-         -o-transition-duration: .2s;
-            transition-duration: .2s;
- }
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 
- button:hover,
- button:focus,
- .button:hover,
-.button:focus {
-    /*lets the mouse appear as a hand when hovering over the button*/
+input[type="submit"] {
+    width: 100%;
+    border-radius: 4px;
     cursor: pointer;
-    /* reduces the opacity of the button to 80%*/
-    opacity: .8;
+    background-color: #357b70;
 }
+
+/* ============================
+   Animations
+============================ */
 
 @-webkit-keyframes color-change {
     0% {
@@ -270,24 +259,27 @@ div {
         fill: #f76414;
     }
 }
-.sun { 
-    -webkit-animation: 4s color-change infinite alternate linear; 
+
+.sun {
+    -webkit-animation: 4s color-change infinite alternate linear;
             animation: 4s color-change infinite alternate linear;
 }
+
 @-webkit-keyframes cloud-move {
     from {
-        -webkit-transform: translate(0,50px);
-                transform: translate(0,50px);
+        -webkit-transform: translate(0, 50px);
+                transform: translate(0, 50px);
     }
     to {
         -webkit-transform: translate(200px, 50px);
                 transform: translate(200px, 50px);
     }
 }
+
 @keyframes cloud-move {
     from {
-        -webkit-transform: translate(0,50px);
-                transform: translate(0,50px);
+        -webkit-transform: translate(0, 50px);
+                transform: translate(0, 50px);
     }
     to {
         -webkit-transform: translate(200px, 50px);
@@ -305,9 +297,9 @@ div {
         -webkit-transform: translate(446px, 48px);
                 transform: translate(446px, 48px);
     }
-    to { 
-        -webkit-transform: translate(100px,48px); 
-                transform: translate(100px,48px);
+    to {
+        -webkit-transform: translate(100px, 48px);
+                transform: translate(100px, 48px);
     }
 }
 
@@ -316,13 +308,66 @@ div {
         -webkit-transform: translate(446px, 48px);
                 transform: translate(446px, 48px);
     }
-    to { 
-        -webkit-transform: translate(100px,48px); 
-                transform: translate(100px,48px);
+    to {
+        -webkit-transform: translate(100px, 48px);
+                transform: translate(100px, 48px);
     }
 }
 
 .cloud-back {
     -webkit-animation: 34s cloud-move-reverse alternate linear;
             animation: 34s cloud-move-reverse alternate linear;
+}
+
+/* ============================
+   Media Queries
+============================ */
+
+@media all and (max-width: 500px) {
+    .grid {
+        -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+@media all and (min-width: 500px) and (max-width: 700px) {
+    .grid {
+        -ms-grid-columns: 1fr 10px 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+    }
+
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+@media all and (max-width: 750px) {
+    .grid {
+        grid-gap: 10px;
+    }
+
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
 }

@@ -44,25 +44,30 @@
 
     </header>
 
-    <main>
+    <main class="profile">
         <h1>Contact Information</h1>
         <div>
-            Personal cell phone <a href="tel:+#-(###)-###-####">+#-(###)-###-####</a>
+            <h2>Personal cell phone:</h2> <a href="tel:+1-(770)-560-8251">+1-(770)-560-8251</a>
             <br>
-            Personal mail <a href="mailto:office@careerfoundry.com">office@careerfoundry.com</a>
+            <h2>Personal mail</h2> <a href="mailto:armandohernandezv@icloud.com">armandohernandezv@icloud.com</a>
             <br>
-            skype <a href="skype:hello.careerfoundry"> hello.careerfoundry</a>
         </div>
+        <h1>Your Information goes down here below!</h1>
         <form action="" method="post" id="contact-form">
+            <label class="standard-label">Name:</label>
+            <input type="text" id="full-name" required>
+
             <label class="standard-label" for="contact email">E-mail: </label>
-            <input type="email" id="contact-email" required>
+            <input type="text" id="contact-email" required>
 
             <label class="standard-label">Telephone: </label>
-            <input type="tel" pattern="\d{3}[\-]\d{3}[\-]\d{4}">
+            <input type="text" pattern="\d{3}[\-]\d{3}[\-]\d{4}" optional>
 
             <label class="standard-label">Message: </label>
-            <textarea required maxlength="240"></textarea>
-            <input type="submit" value="Send message">
+            <textarea required maxlength="240" optional ></textarea>
+
+            <input type="submit" value="Submit">
+        
         </form>
     </main>
     <footer class="page-footer">
